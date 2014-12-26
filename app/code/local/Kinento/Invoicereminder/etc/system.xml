@@ -1,0 +1,262 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+		<kinento translate="label" module="invoicereminder">
+			<label>Kinento</label>
+			<sort_order>100</sort_order>
+		</kinento>
+	</tabs>
+	<sections>
+		<invoicereminder translate="label" module="invoicereminder">
+			<label>Invoice Reminders</label>
+			<tab>kinento</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>501</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<timesettings translate="label">
+					<label>Time criteria</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<hiddenone translate="label">
+							<label>On-account customers:</label>
+							<frontend_type>hidden</frontend_type>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</hiddenone>
+						<firstnotificationonaccount translate="label">
+							<label>First notification after</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>days</comment>
+						</firstnotificationonaccount>
+						<secondnotificationonaccount translate="label">
+							<label>Second notification after</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>days</comment>
+						</secondnotificationonaccount>
+						<nthonaccount translate="label">
+							<label>Third, fourth, fifth, etc.</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>21</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>days after previous notification</comment>
+						</nthonaccount>
+						<hiddentwo translate="label">
+							<label>Prepaid customers:</label>
+							<frontend_type>hidden</frontend_type>
+							<sort_order>25</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</hiddentwo>
+						<firstnotificationprepaid translate="label">
+							<label>First notification after</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>days</comment>
+						</firstnotificationprepaid>
+						<secondnotificationprepaid translate="label">
+							<label>Second notification after</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>days</comment>
+						</secondnotificationprepaid>
+						<nthprepaid translate="label">
+							<label>Third, fourth, fifth, etc.</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>41</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>days after previous notification</comment>
+						</nthprepaid>
+					</fields>
+				</timesettings>
+				<generalsettings translate="label">
+					<label>General settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>15</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<startingdate translate="label">
+							<label>Include invoices starting from</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>input as a UNIX timestamp (see unixtimestamp.com)</comment>
+						</startingdate>
+						<invoicepayments translate="label">
+							<label>Include invoices using payments:</label>
+							<frontend_type>multiselect</frontend_type>
+							<source_model>invoicereminder/payments</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</invoicepayments>
+						<invoicestatuses translate="label">
+							<label>Include invoices with status</label>
+							<frontend_type>multiselect</frontend_type>
+							<source_model>invoicereminder/statuses</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</invoicestatuses>
+						<groupsonaccount translate="label">
+							<label>On-account customers are in the following group(s)</label>
+							<frontend_type>multiselect</frontend_type>
+							<source_model>invoicereminder/groups</source_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Prepaid customers are set to all other groups</comment>
+						</groupsonaccount>
+					</fields>
+				</generalsettings>
+				<emailsettings translate="label">
+					<label>Email settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>20</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<emailcopy translate="label">
+							<label>Send a copy to the following email address</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Leave blank to disable this feature</comment>
+						</emailcopy>
+						<templateone translate="label">
+							<label>First reminder template</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Create new templates using 'System-&gt;Transactional emails'</comment>
+						</templateone>
+						<templatetwo translate="label">
+							<label>Second reminder template</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Create new templates using 'System-&gt;Transactional emails'</comment>
+						</templatetwo>
+						<templatethree translate="label">
+							<label>Third reminder template</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Create new templates using 'System-&gt;Transactional emails'</comment>
+						</templatethree>
+						<attachonaccount translate="label">
+							<label>Attachments for on-account customers</label>
+							<frontend_type>select</frontend_type>
+							<source_model>invoicereminder/attach</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</attachonaccount>
+						<paytypeone translate="label">
+							<label>Special text for on-account customers</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>input in HTML</comment>
+						</paytypeone>
+						<attachprepaid translate="label">
+							<label>Attachments for prepaid customers</label>
+							<frontend_type>select</frontend_type>
+							<source_model>invoicereminder/attach</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</attachprepaid>
+						<paytypetwo translate="label">
+							<label>Special text for prepaid customers</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>input in HTML</comment>
+						</paytypetwo>
+						<altpayments translate="label">
+							<label>Invoices with these payments are in the 'normal' group</label>
+							<frontend_type>multiselect</frontend_type>
+							<source_model>invoicereminder/payments</source_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Other payments are considered 'alternative'</comment>
+						</altpayments>
+						<normaltext translate="label">
+							<label>Special text for normal payments</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>62</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>input in HTML</comment>
+						</normaltext>
+						<alttext translate="label">
+							<label>Special text for 'alternative' payments</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>64</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>input in HTML</comment>
+						</alttext>
+					</fields>
+				</emailsettings>
+			</groups>
+		</invoicereminder>
+	</sections>
+</config>

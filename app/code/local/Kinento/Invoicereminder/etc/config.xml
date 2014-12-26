@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<config>
+	
+	<modules>
+		<Kinento_Invoicereminder>
+			<version>2.0.0</version>
+		</Kinento_Invoicereminder>
+	</modules>
+	
+	<global>
+		<models>
+			<sales>
+				<rewrite>
+					<order_invoice>Kinento_Invoicereminder_Model_Order_Invoice</order_invoice>
+				</rewrite>
+			</sales>
+			<invoicereminder>
+				<class>Kinento_Invoicereminder_Model</class>
+				<resourceModel>invoicereminder_mysql4</resourceModel>
+			</invoicereminder>
+			<invoicereminder_mysql4>
+				<class>Kinento_Invoicereminder_Model_MySQL4</class>
+				<entities>
+					<invoicereminder>
+						<table>invoicereminder</table>
+					</invoicereminder>
+				</entities>
+			</invoicereminder_mysql4>
+			<sender>
+				<class>Kinento_Invoicereminder_Model_Sender</class>
+			</sender>
+		</models>
+		<helpers>
+			<invoicereminder>
+				<class>Kinento_Invoicereminder_Helper</class>
+			</invoicereminder>
+		</helpers>
+		<blocks>
+			<adminhtml>
+				<rewrite>
+					<sales_invoice_grid>Kinento_Invoicereminder_Block_Sales_Invoice_Grid</sales_invoice_grid>
+				</rewrite>
+			</adminhtml>
+			<invoicereminder>
+				<class>Kinento_Invoicereminder_Block</class>
+			</invoicereminder>
+		</blocks>
+		<template>
+			<email>
+				<invoicereminder_emailsettings_templateone translate="label" module="invoicereminder">
+					<label>Reminder One</label>
+					<file>reminder_one.html</file>
+					<type>html</type>
+				</invoicereminder_emailsettings_templateone>
+				<invoicereminder_emailsettings_templatetwo translate="label" module="invoicereminder">
+					<label>Reminder Two</label>
+					<file>reminder_two.html</file>
+					<type>html</type>
+				</invoicereminder_emailsettings_templatetwo>
+				<invoicereminder_emailsettings_templatethree translate="label" module="invoicereminder">
+					<label>Reminder Three</label>
+					<file>reminder_three.html</file>
+					<type>html</type>
+				</invoicereminder_emailsettings_templatethree>
+			</email>
+		</template>
+		<resources>
+			<invoicereminder_setup>
+				<setup>
+					<module>Kinento_Invoicereminder</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</invoicereminder_setup>
+			<invoicereminder_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</invoicereminder_write>
+			<invoicereminder_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</invoicereminder_read>
+		</resources>
+	</global>
+	
+	<adminhtml>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<sales>
+							<children>
+								<invoicereminder>
+									<title>Invoice Reminders</title>
+									<sort_order>701</sort_order>
+								</invoicereminder>
+							</children>
+						</sales>
+						<system>
+							<children>
+								<config>
+									<children>
+										<invoicereminder>
+											<title>Kinento settings</title>
+										</invoicereminder>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<menu>
+			<sales>
+				<children>
+					<invoicereminder translate="title" module="invoicereminder">
+						<title>Invoice Reminders</title>
+						<sort_order>701</sort_order>
+						<action>invoicereminder/view</action>
+					</invoicereminder>
+				</children>
+			</sales>
+		</menu>
+	</adminhtml>
+	
+	<admin>
+		<routers>
+			<invoicereminder>
+				<use>admin</use>
+				<args>
+					<module>Kinento_Invoicereminder</module>
+					<frontName>invoicereminder</frontName>
+				</args>
+			</invoicereminder>
+		</routers>
+	</admin>
+	
+	<crontab>
+		<jobs>
+			<sendinvoicereminders>
+				<schedule><cron_expr>*/15 * * * *</cron_expr></schedule>
+				<run><model>invoicereminder/sender::prepareMail</model></run>
+			</sendinvoicereminders>
+		</jobs>
+	</crontab>
+	
+	<default>
+		<invoicereminder>
+			<timesettings>
+				<firstnotificationonaccount>7</firstnotificationonaccount>
+				<secondnotificationonaccount>14</secondnotificationonaccount>
+				<nthonaccount>7</nthonaccount>
+				<firstnotificationprepaid>7</firstnotificationprepaid>
+				<secondnotificationprepaid>14</secondnotificationprepaid>
+				<nthprepaid>7</nthprepaid>
+			</timesettings>
+			<generalsettings>
+				<startingdate>1257853617</startingdate>
+				<invoicestatuses>4</invoicestatuses>
+			</generalsettings>
+			<emailsettings>
+				<paytypeone>We encourage you to pay as soon as possible for the items you purchased.</paytypeone>
+				<attachonaccount>enabled</attachonaccount>
+				<paytypetwo>We are still waiting for your payment. Without payment, no items will be shipped.</paytypetwo>
+				<attachprepaid>enabled</attachprepaid>
+				<normaltext>Example special text for 'normal' payments.</normaltext>
+				<alttext>Example special text for 'alternative' payments.</alttext>
+			</emailsettings>
+		</invoicereminder>
+	</default>
+	
+</config>

@@ -1,0 +1,42 @@
+ *
+ * Kinento Invoice Reminders
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ *
+ * @category   Kinento
+ * @package    Kinento_Invoicereminder
+ * @copyright  Copyright (c) 2009-2015 Kinento
+ * @license    MIT license
+ *
+ * Installation guide & FAQ: see "manual.pdf"
+ *
+
+Version 2.0.0
+- Kinento Invoice Reminders is now a community-supported open-source module
+- The module is no longer maintained by Kinento
+- The module is freely available under the MIT license
+
+Version 1.3.0
+- Added a user guide (including installation, troubleshooting, FAQ)
+- Embedded the folder structure for easier installation
+- Added debug messages when sending emails
+- Updated the version number to match Order Reminders
+
+Version 1.1.0
+- Major code clean-up
+- Added a new invoice status 'pending payment' which is set as default when creating an invoice. The state can be changed after payment arrives through the "Sales" -> "Invoices" panel.
+- Updated the module to include all bug fixes applied to Order Reminders up to version 1.2.4
+
+Version 1.0.1
+- Fixed a minor bug causing invoice types to be displayed incorrectly
+- Added a feature to distinguish payment types in the emails
+
+Version 1.0.0
+- Initial version
+- Based on Kinento Order Reminders version 1.2.1
